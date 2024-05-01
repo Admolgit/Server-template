@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema({
     minlength: 8,
     maxlength: 128,
   },
+  
 }, {
   timestamps: true,
 });
@@ -46,7 +47,7 @@ userSchema.pre('save', async function save(next) {
 
     const rounds = env === 'test' ? 1 : 10;
 
-    const hash = await bcrypt.hash(this.password, rounds);
+    const hash = bcrypt.hash(this.password, rounds);
     this.password = hash;
 
     return next();
@@ -62,7 +63,7 @@ userSchema.method({
   transform() {
     const transformed = {};
 
-    const fields = ['id', 'fullName', 'email', 'createdAt'];
+    const fields = ['id', 'fullName', 'email','createdAt'];
 
     fields.forEach((field) => {
       transformed[field] = this[field];

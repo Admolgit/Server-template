@@ -30,17 +30,26 @@ function generateTokenResponse(user, accessToken) {
  */
 exports.register = async (req, res, next) => {
   try {
-
     const {
-      fullName,
+      firstName,
+      lastName,
+      phoneNumber,
       email,
+      dateOfBirth,
       password,
+      terms,
+      rememberMe
     } = req.body;
 
     const userData = {
-      fullName,
+      firstName,
+      lastName,
+      phoneNumber,
       email,
+      dateOfBirth,
       password,
+      terms,
+      rememberMe
     };
 
     const user = await new User(userData).save();

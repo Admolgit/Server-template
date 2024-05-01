@@ -18,9 +18,6 @@ router.get('/status', (req, res) => {
   res.send('OK');
 });
 
-// router.use('/users', userRoutes);
 router.use('/auth', authRoutes);
-// router.use('/teachers', teacher);
-// router.use('/', paystack);
 
 module.exports = router;
