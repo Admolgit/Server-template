@@ -31,7 +31,7 @@ const router = express.Router();
  *
  * @apiError (Bad Request 400)  ValidationError  Some parameters may contain invalid values
  */
-router.route('/register').post(controller.register);
+router.post('/register', controller.register);
 
 /**
  * @api {post} v1/auth/login Login
